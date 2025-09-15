@@ -1,0 +1,30 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity lab10BitCounter is
+	port (
+		clk: in std_logic;
+		rst: in std_logic;
+		leds: out std_logic_vector(9 downto 0)
+	);
+end entity lab10BitCounter;
+
+architecture behavioral of lab10BitCounter is
+	signal counter: unsigned(9 downto 0):=(others=>'0');
+begin
+
+	--clock logic 500 wait till 250 = 2hz
+	process(clk)
+   begin
+		if rising_edge(clk) then
+			if rst = '1' then
+				counter <= (others => '0');
+			else
+				counter <= counter + 1;
+			end if;
+		end if;
+   end process;
+	leds <= std_logic_vector(counter);
+	
+end architecture behavioral;
