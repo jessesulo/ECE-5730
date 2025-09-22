@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity lab2StopWatch is
+entity LAB2 is
 	port (
 		clk: in std_logic;
 		reset: in std_logic;
@@ -14,9 +14,9 @@ entity lab2StopWatch is
 		seg4: out std_logic_vector(6 downto 0);
 		seg5: out std_logic_vector(6 downto 0)
 	);
-end entity lab2StopWatch;
+end entity LAB2;
 
-architecture behavioral of lab2StopWatch is
+architecture behavioral of LAB2 is
 	signal enable: std_logic := '0';
 	signal count: unsigned(27 downto 0) := (others => '0');
 	signal minutes: unsigned (6 downto 0) := (others => '0');
